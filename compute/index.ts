@@ -14,6 +14,11 @@ app.get('/', (req: express.Request, res: express.Response) => {
   res.status(200).send("homepage");
 });
 
+// Conflict rules
+app.get('/conflict-rules', (req: express.Request, res: express.Response) => {
+  res.status(200).header("x-served-from-compute", "true").send("Check your response headers");
+});
+
 // Runtime
 app.get('/runtime', (req: express.Request, res: express.Response) => {
   const runtime = process.env.AWS_EXECUTION_ENV;
