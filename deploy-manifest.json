@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "framework": { "name": "react", "version": "18.2.0" },
+  "version": 2,
+  "framework": { "name": "react", "version": "18.2.0xx-not-semver" },
   "imageSettings": {
     "sizes": [
       100,
@@ -60,7 +60,8 @@
       "path": "/screenshots/*",
       "target": {
         "kind": "Static",
-        "cacheControl": "public, max-age=0"
+        "cacheControl": "public, max-age=0",
+        "src": "say what?"
       }
     },
     {
@@ -99,14 +100,16 @@
         "src": "default"
       },
       "fallback": {
-        "kind": "ImageOptimization"
+        "kind": "ImageOptimization",
+        "src": "i-am-not-supposed-to-be-here"
       }
     },
     {
       "path": "/*",
       "target": {
         "kind": "Compute",
-        "src": "default"
+        "src": "default",
+        "cacheControl": "public, max-age=0"
       },
       "fallback": {
         "kind": "Static",
@@ -116,9 +119,9 @@
   ],
   "computeResources": [
     {
-      "name": "default",
-      "runtime": "nodejs18.x",
-      "entrypoint": "index.cjs"
+      "name": "not-default",
+      "runtime": "nodejs19.x",
+      "entrypoint": "i-dont-exist.cjs"
     }
   ]
 }
